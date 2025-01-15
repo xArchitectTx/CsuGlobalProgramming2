@@ -49,10 +49,12 @@ public class EmployeeClass {
 
     // employeeSummary method (printing all account attributes)
     public void employeeSummary() {
-        System.out.println("Employee Summary");
+        System.out.println();
+        System.out.println("EMPLOYEE SUMMARY");
         System.out.println("----------------");
         System.out.println("Name: " + firstName + " " + lastName);
         System.out.println("Employee ID: " + employeeID);
         System.out.println("Salary: $" + salary);
+        System.out.println();
     }
 }
