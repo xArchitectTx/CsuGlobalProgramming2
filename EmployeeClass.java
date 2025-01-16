@@ -1,11 +1,10 @@
 public class EmployeeClass {
-    // Fields provided by CSU-GLOBAL
+
     private String firstName;
     private String lastName;
     private int employeeID;
     private double salary;
 
-    // Constructor (initializing salary field to zero)
     public EmployeeClass(String firstName, String lastName, int employeeID) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -13,8 +12,6 @@ public class EmployeeClass {
         this.salary = 0.0;
     }
 
-    // Setters and getters (firstName, lastName, and employeeID)
-    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -47,7 +44,6 @@ public class EmployeeClass {
         return this.salary;
     }
 
-    // employeeSummary method (printing all account attributes)
     public void employeeSummary() {
         System.out.println();
         System.out.println("EMPLOYEE SUMMARY");
