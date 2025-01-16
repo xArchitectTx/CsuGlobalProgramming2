@@ -17,13 +17,8 @@ public class ManagerClass extends EmployeeClass {
 
     @Override
     public void employeeSummary() {
-        System.out.println();
-        System.out.println("MANAGER SUMMARY");
-        System.out.println("----------------");
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
-        System.out.println("Employee ID: " + getEmployeeID());
-        System.out.println("Manager's Salary: $" + getSalary());
+        super.employeeSummary();
         System.out.println("Department: " + department);
-        System.out.println();
+        System.out.println("Position: Manager");
     }
 }

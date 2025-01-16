@@ -51,6 +51,6 @@ public class EmployeeClass {
         System.out.println("Name: " + firstName + " " + lastName);
         System.out.println("Employee ID: " + employeeID);
         System.out.println("Salary: $" + salary);
-        System.out.println();
+
     }
 }
