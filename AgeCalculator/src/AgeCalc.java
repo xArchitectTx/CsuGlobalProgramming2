@@ -4,7 +4,7 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class AgeCalculatorApp extends JFrame {
+public class AgeCalc extends JFrame {
     private static final int PADDING = 20;
     private static final int SPACING = 10;
 
@@ -12,8 +12,8 @@ public class AgeCalculatorApp extends JFrame {
     private JLabel resultLabel;
     private JButton calculateButton;
 
-    public AgeCalculatorApp() {
-        setTitle("Age Calculator");
+    public AgeCalc() {
+        setTitle("Option 2: Age Calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         initializeComponents();
@@ -28,13 +28,13 @@ public class AgeCalculatorApp extends JFrame {
 
         // Birth Date Label
         JLabel birthDateLabel = new JLabel("Birth Date:");
-        birthDateLabel.setHorizontalAlignment(SwingConstants.LEFT); // Align text to the left
-        birthDateLabel.setAlignmentX(Component.LEFT_ALIGNMENT); // Align component to the left
+        birthDateLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        birthDateLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // DatePicker
         datePicker = new DatePicker();
         datePicker.setDateToToday();
-        datePicker.setToolTipText("Select your birth date.");
+        datePicker.setToolTipText("What is the date of your birth?");
         datePicker.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // Calculate Button
@@ -45,8 +45,8 @@ public class AgeCalculatorApp extends JFrame {
 
         // Result Label
         resultLabel = new JLabel("Select your birth date");
-        resultLabel.setHorizontalAlignment(SwingConstants.LEFT); // Align text to the left
-        resultLabel.setAlignmentX(Component.LEFT_ALIGNMENT); // Align component to the left
+        resultLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        resultLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // Add components to the main panel
         mainPanel.add(birthDateLabel);
@@ -66,12 +66,12 @@ public class AgeCalculatorApp extends JFrame {
         LocalDate today = LocalDate.now();
 
         if (birthDate == null) {
-            resultLabel.setText("Please select a valid birth date.");
+            resultLabel.setText("Invalid birth date.");
             return;
         }
 
         if (birthDate.isAfter(today)) {
-            resultLabel.setText("Birth date cannot be in the future.");
+            resultLabel.setText("Invalid birth date.");
             return;
         }
 
@@ -86,6 +86,6 @@ public class AgeCalculatorApp extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        SwingUtilities.invokeLater(() -> new AgeCalculatorApp().setVisible(true));
+        SwingUtilities.invokeLater(() -> new AgeCalc().setVisible(true));
     }
 }
