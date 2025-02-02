@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public class MenuApp extends Application {
+public class UserInterface2 extends Application {
 
     private TextArea textArea;
     private Random random = new Random();
