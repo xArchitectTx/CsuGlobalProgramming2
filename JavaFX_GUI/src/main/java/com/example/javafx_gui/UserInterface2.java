@@ -1,24 +1,24 @@
 package com.example.javafx_gui;
 
 //JavaFX Imports
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-//I/O Imports
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-//Date and Time handling
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-//Random number generator
-import java.util.Random;
 
 public class UserInterface2 extends Application {
     //UI Components
@@ -52,7 +52,7 @@ public class UserInterface2 extends Application {
                         "-fx-padding: 0;"
         );
 
-        //Layout Container
+        //Layout Container 
         root = new BorderPane();
         root.setTop(menuBar);
         root.setCenter(textArea);
