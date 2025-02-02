@@ -1,5 +1,6 @@
 package com.example.javafx_gui;
 
+//JavaFX Imports
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -9,32 +10,38 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+//I/O Imports
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+//Date and Time handling
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+//Random number generator
 import java.util.Random;
 
 public class UserInterface2 extends Application {
-
+    //UI Components
     private TextArea textArea;
     private Random random = new Random();
     private BorderPane root;
 
+    //Main Entry Point
     @Override
     public void start(Stage primaryStage) {
         MenuBar menuBar = new MenuBar();
         Menu fileMenu = new Menu("File");
+
+        //Menu Items
         MenuItem showDateTimeItem = new MenuItem("Show Date/Time");
         MenuItem saveToFileItem = new MenuItem("Save to File");
-        MenuItem changeColorItem = new MenuItem("Change Background Color");
+        MenuItem changeColorItem = new MenuItem("Orange Background Color");
         MenuItem exitItem = new MenuItem("Exit");
 
         fileMenu.getItems().addAll(showDateTimeItem, saveToFileItem, changeColorItem, exitItem);
         menuBar.getMenus().add(fileMenu);
 
-        // Create text area with valid CSS
+        // Create Text Area With Transparent Background
         textArea = new TextArea();
         textArea.setEditable(false);
         textArea.setStyle(
@@ -45,23 +52,25 @@ public class UserInterface2 extends Application {
                         "-fx-padding: 0;"
         );
 
+        //Layout Container
         root = new BorderPane();
         root.setTop(menuBar);
         root.setCenter(textArea);
 
         Scene scene = new Scene(root, 600, 400);
 
-        // Event handlers (unchanged)
+        // Event handlers
         showDateTimeItem.setOnAction(e -> appendDateTime());
         saveToFileItem.setOnAction(e -> saveToFile());
         changeColorItem.setOnAction(e -> changeBackgroundColor());
         exitItem.setOnAction(e -> primaryStage.close());
 
-        primaryStage.setTitle("JavaFX Menu Application");
+        //Primary Stage
+        primaryStage.setTitle("Creating a User Interface II");
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        // Fix viewport AFTER stage is shown
+        // Post-Display Adjustment
         Platform.runLater(() -> {
             Region viewport = (Region) textArea.lookup(".viewport");
             if (viewport != null) {
@@ -70,12 +79,14 @@ public class UserInterface2 extends Application {
         });
     }
 
+    // Helper Method (Date/Time)
     private void appendDateTime() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         textArea.appendText("Current Date/Time: " + now.format(formatter) + "\n");
     }
 
+    // Helper Method (Text to File)
     private void saveToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("log.txt"))) {
             writer.write(textArea.getText());
@@ -85,6 +96,7 @@ public class UserInterface2 extends Application {
         }
     }
 
+    //Change Background Color
     private void changeBackgroundColor() {
         double hue = 25 + random.nextDouble() * 10; // 25°-35° orange range
         Color color = Color.hsb(hue, 1.0, 1.0);
@@ -92,6 +104,7 @@ public class UserInterface2 extends Application {
         textArea.appendText("Background color changed to random orange hue.\n");
     }
 
+    // Convert Color Object to Hexadecimal CSS Color Code
     private String toRGBCode(Color color) {
         return String.format("#%02X%02X%02X",
                 (int) (color.getRed() * 255),
@@ -99,6 +112,7 @@ public class UserInterface2 extends Application {
                 (int) (color.getBlue() * 255));
     }
 
+    // Main Method to Launch Application
     public static void main(String[] args) {
         launch(args);
     }
