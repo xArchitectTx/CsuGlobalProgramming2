@@ -1,3 +1,6 @@
+/* CSC372 Critical Thinking #6, Storing an ArrayList
+ * The Class implements a selection sort algorithm to sort any ArrayList of objects based on a provided comparator
+ */
 import java.util.ArrayList;
 import java.util.Comparator;
 

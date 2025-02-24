@@ -1,3 +1,6 @@
+/* CSC372 Critical Thinking #6, Storing an ArrayList
+ * The Class implements a custom comparison logic to sort student objects by their name.
+ */
 import java.util.Comparator;
 
 public class NameComparator implements Comparator<Student> {

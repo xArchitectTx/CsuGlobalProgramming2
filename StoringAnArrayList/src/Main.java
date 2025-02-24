@@ -1,8 +1,5 @@
-/*
-
-
-
-
+/* CSC372 Critical Thinking #6, Storing an ArrayList
+ * The Main Class serves as driver class to demonstrate functionality of the other classes
  */
 import java.util.ArrayList;
 

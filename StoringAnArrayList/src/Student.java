@@ -1,3 +1,6 @@
+/* CSC372 Critical Thinking #6, Storing an ArrayList
+ * The Class represents a student with three attributes: roll number, name, and address.
+ */
 public class Student {
     private int rollno;
     private String name;
@@ -23,6 +26,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [rollno=" + rollno + ", name=" + name + ", address=" + address + "]";
+        return "Student [Roll# = " + rollno + ", Name = " + name + ", Address = " + address + "]";
     }
 }
